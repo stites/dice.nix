@@ -1,0 +1,41 @@
+From 4fd0c30aacaa5d054cfaf09d72e86fea60511e4c Mon Sep 17 00:00:00 2001
+From: Sam Stites <stites@users.noreply.github.com>
+Date: Sun, 19 Feb 2023 13:07:13 -0500
+Subject: [PATCH] rsdd_nix_lib instead of submodule
+
+---
+ lib/dune | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/lib/dune b/lib/dune
+index 29bbb72..eb810c7 100644
+--- a/lib/dune
++++ b/lib/dune
+@@ -11,10 +11,8 @@
+  (action
+   (no-infer
+     (progn
+-      (chdir ../rsdd (run cargo build --release))
+-      (copy ../rsdd/target/release/librsdd.dylib dllrsdd.so
+-      )
+-      (copy ../rsdd/target/release/librsdd.a librsdd.a)
++      (copy rsdd_nix_lib/librsdd.dylib dllrsdd.so)
++      (copy rsdd_nix_lib/release/librsdd.a librsdd.a)
+       ))))
+ 
+ (rule
+@@ -24,9 +22,8 @@
+  (action
+   (no-infer
+     (progn
+-      (chdir ../rsdd (run cargo build --release))
+-      (copy ../rsdd/target/release/librsdd.so dllrsdd.so)
+-      (copy ../rsdd/target/release/librsdd.a librsdd.a)
++      (copy rsdd_nix_lib/librsdd.so dllrsdd.so)
++      (copy rsdd_nix_lib/librsdd.a librsdd.a)
+       ))))
+ 
+ 
+-- 
+2.39.1
+

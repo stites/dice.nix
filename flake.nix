@@ -1,8 +1,9 @@
 {
   inputs = {
     opam-nix.url = "github:tweag/opam-nix";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.follows = "opam-nix/flake-utils";
     naersk.url = "github:nix-community/naersk";
+    naersk.inputs.nixpkgs.follows = "opam-nix/nixpkgs";
     dice.url = "github:SHoltzen/dice/800cd7bfc4fa1311c51e460b95e9c0dc7b30edf3"; # 2023-12-07
     dice.flake = false;
     rsdd.url = "github:pmall-neu/rsdd/4363f659b33d21575eebfe0e96c773afe4bcc6a5"; # pinned

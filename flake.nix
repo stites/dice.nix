@@ -46,7 +46,7 @@
               mv target/release/librsdd.a $out/lib/
             ''
             + (
-              if system == "x86_64-darwin"
+              if pkgs.stdenv.isDarwin
               then "mv target/release/librsdd.dylib $out/lib/" # untested
               else "mv target/release/librsdd.so $out/lib/"
             );

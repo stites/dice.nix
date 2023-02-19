@@ -94,7 +94,10 @@
     in {
       legacyPackages = scope';
 
-      packages.default = main;
+      packages = {
+        default = main;
+        dice = main;
+      };
       apps = rec {
         dice = {
           type = "app";

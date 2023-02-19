@@ -1,6 +1,8 @@
 * a nix flake for [[https://github.com/SHoltzen/dice][dice]]
 
 - ~nix build~ will build dice locally
-- ~nix run .~ will run the dice binary
+- ~nix run github:stites/dice.nix~ will checkout and run dice (replace ~github...~ with ~.~ if you are building locally).
 - ~nix develop~ will provide an ocaml dev environment (via [[https://github.com/tweag/opam-nix][opam-nix]]) with ~cargo~ and ~rustc~ for rsdd.
   If you are hacking on dice with this, I would recommend using a direnv environment of ~use flake ../path/to/this/repo --impure~ and adding a PR to support devenv.
+
+If anyone else winds up using this, file an issue and I can start a cachix project for this.

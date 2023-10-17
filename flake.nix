@@ -1,4 +1,5 @@
 {
+  description = "Exact inference for discrete probabilistic programs.";
   inputs = {
     opam-nix.url = "github:tweag/opam-nix";
     flake-utils.follows = "opam-nix/flake-utils";
@@ -87,7 +88,15 @@
       };
       scope' = scope.overrideScope' overlay;
       # The main package containing the executable
-      main = scope'.${package};
+      main = scope'.${package}.overrideAttrs (_: {
+        meta = with pkgs.lib; {
+          homepage = "https://github.com/SHoltzen/dice";
+          description = "Exact inference for discrete probabilistic programs.";
+          license = licenses.asl20;
+          maintainers = [ maintainers.stites ];
+          platforms = platforms.unix;
+        };
+      });
       # Packages from devPackagesQuery
       devPackages =
         builtins.attrValues

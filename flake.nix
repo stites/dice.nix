@@ -1,7 +1,7 @@
 {
   description = "Exact inference for discrete probabilistic programs.";
   inputs = {
-    opam-nix.url = "github:tweag/opam-nix";
+    opam-nix.url = "github:tweag/opam-nix/af5fcd71761ab9e17b648ec69604370576515d9e";
     flake-utils.follows = "opam-nix/flake-utils";
     naersk.url = "github:nix-community/naersk";
     naersk.inputs.nixpkgs.follows = "opam-nix/nixpkgs";
